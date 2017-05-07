@@ -6,13 +6,17 @@ RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
 	&& pip2 install --upgrade pip \
 	&& pip2 install flask
 
+# application folder
+ENV APP_DIR /app
+
 # app dir
 RUN mkdir /app \
 	&& chown -R nginx:nginx /app \
 	&& chmod 777 /run/ -R \
 	&& chmod 777 /root/ -R
-VOLUME [/app]
-WORKDIR /app
+
+VOLUME ${APP_DIR}
+WORKDIR ${APP_DIR}
 
 # expose web server port
 # only http, for ssl use reverse proxy
