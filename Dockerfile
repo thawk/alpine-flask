@@ -1,10 +1,10 @@
 FROM alpine
-MAINTAINER Christian Gatzlaff <cgatzlaff@gmail.com>
+MAINTAINER thawk <thawk009@gmail.com>
 
 # basic flask environment
-RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
+RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip timew dropbear-ssh \
 	&& pip2 install --upgrade pip \
-	&& pip2 install flask
+	&& pip2 install flask tasklib
 
 # application folder
 ENV APP_DIR /app
