@@ -2,9 +2,9 @@ FROM alpine
 MAINTAINER thawk <thawk009@gmail.com>
 
 # basic flask environment
-RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip timew dropbear-ssh \
+RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip dropbear-ssh \
 	&& pip2 install --upgrade pip \
-	&& pip2 install flask tasklib
+	&& pip2 install flask
 
 # application folder
 ENV APP_DIR /app
